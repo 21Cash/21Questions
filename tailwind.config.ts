@@ -9,10 +9,13 @@ export default {
   theme: {
     extend: {
       colors: {
+        primary: "rgb(31 41 55)",
+        secondary: "rgb(55 65 81)",
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
     },
   },
+  darkMode: "class",
   plugins: [],
 } satisfies Config;

@@ -1,0 +1,8 @@
+TODO
+
+[] -
+
+[] - Connect Database using Drizzle ORM
+[] - Setup Authentication with a login page (User can choose Handle, Google Sign In, Custom handle Password) 
+[] - 
+ 
