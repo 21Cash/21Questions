@@ -1,12 +1,13 @@
-"use client"; // Ensure this is a client-side component
+"use client";
 
+import { Suspense } from "react";
 import { useSearchParams } from "next/navigation";
-import { usePathname } from "next/navigation"; // For checking the current route
+import { usePathname } from "next/navigation";
 
-const ErrorPage = () => {
+const ErrorPageContent = () => {
   const searchParams = useSearchParams();
   const error = searchParams.get("error");
-  const pathname = usePathname(); // Get current route
+  const pathname = usePathname();
 
   return (
     <div className="flex items-center justify-center h-screen dark:bg-secondary">
@@ -21,6 +22,14 @@ const ErrorPage = () => {
         )}
       </div>
     </div>
+  );
+};
+
+const ErrorPage = () => {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <ErrorPageContent />
+    </Suspense>
   );
 };
 
