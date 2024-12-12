@@ -8,20 +8,25 @@
     "start": "next start",
     "lint": "next lint",
     "db:generate": "pnpm drizzle-kit generate --config database/drizzle.config.ts",
-    "db:migrate": "npx drizzle-kit migrate"
+    "db:migrate": "npx drizzle-kit migrate --config database/drizzle.config.ts",
+    "db:dropmigration": "npx drizzle-kit drop --config database/drizzle.config.ts",
+    "db:studio": "npx drizzle-kit studio --config database/drizzle.config.ts"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
     "@neondatabase/serverless": "^0.10.4",
+    "argon2": "^0.41.1",
     "dotenv": "^16.4.7",
     "drizzle-orm": "^0.38.0",
     "next": "15.1.0",
+    "next-auth": "^4.24.11",
     "pg": "^8.13.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@types/next-auth": "^3.15.0",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",

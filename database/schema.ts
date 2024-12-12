@@ -1,11 +1,11 @@
-import { pgTableCreator, serial, varchar } from "drizzle-orm/pg-core";
+import { pgTable, uuid, text, varchar } from "drizzle-orm/pg-core";
+import { InferInsertModel, InferSelectModel } from "drizzle-orm";
 
-export const pgTable = pgTableCreator(
-  (name) => `${process.env.PROJECT_NAME}_${name}`
-);
-
-export const User = pgTable("users", {
-  id: serial("id").primaryKey(),
-  name: varchar("name", { length: 255 }).notNull(),
-  password: varchar("password", { length: 255 }).notNull(),
+export const users = pgTable("users", {
+  id: uuid("id").primaryKey().defaultRandom(),
+  username: varchar("username", { length: 255 }).notNull().unique(),
+  password: text("password").notNull(),
 });
+
+export type User = InferSelectModel<typeof users>;
+export type UserInsert = InferInsertModel<typeof users>;
