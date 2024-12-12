@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "db:generate": "pnpm drizzle-kit generate --config database/drizzle.config.ts"
+    "db:generate": "pnpm drizzle-kit generate --config database/drizzle.config.ts",
+    "db:migrate": "npx drizzle-kit migrate"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
