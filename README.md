@@ -1,36 +1,25 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 21Questions
 
-## Getting Started
+Welcome to **21Questions**, a fun and engaging platform where you can ask questions anonymously! The idea is simple: users can submit questions to others without revealing their identities, promoting open-ended conversations in a safe, anonymous space.
 
-First, run the development server:
+## Key Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Ask questions anonymously**: Got something on your mind? Ask it without anyone knowing who you are.
+- **Secure user authentication**: Sign up and log in easily with NextAuth.js. Your data is safe with us.
+- **Store and manage data**: All your questions, answers, and user info are securely stored in a PostgreSQL database, using Drizzle ORM for smooth and efficient queries.
+- **PWA for all devices**: Whether you’re on a desktop or mobile, the app is fully responsive and works like a native app.
+- **Fast and optimized**: With Incremental Static Regeneration (ISR), our app loads quickly and updates content efficiently.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Tech Stack
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Here’s a look at the technology that powers **21Questions**:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Next.js 14**: The backbone of our app. It helps us build fast, scalable web applications with great features like server-side rendering and API routes.
+- **NextAuth.js**: This takes care of authentication—users can log in securely, and their sessions are managed seamlessly.
+- **Drizzle ORM**: Makes interacting with the PostgreSQL database a breeze. It simplifies data handling and ensures things run smoothly.
+- **PostgreSQL**: A robust, reliable relational database to store all our data (questions, answers, and user info).
+- **pnpm**: A super-fast package manager that helps us manage dependencies efficiently.
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Feel free to explore, ask your questions, and join in the fun. If you'd like to contribute or improve the platform, you're welcome to submit pull requests!
