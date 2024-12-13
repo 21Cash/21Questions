@@ -4,7 +4,11 @@ import { db } from "@/database/db";
 import { users } from "@/database/schema";
 
 export async function POST(request: Request) {
-  const { username, password } = await request.json();
+  const data = await request.json();
+
+  data.username = data.username.toLowerCase();
+
+  const { username, password } = data;
 
   console.log(`Request For Signup`);
 

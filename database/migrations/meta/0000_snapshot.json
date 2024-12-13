@@ -1,5 +1,5 @@
 {
-  "id": "86aa0bcb-34fb-4deb-b492-adcebd420445",
+  "id": "30c74412-f46c-45a5-8f14-89865da6edf4",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -23,9 +23,15 @@
         },
         "password": {
           "name": "password",
-          "type": "text",
+          "type": "varchar(128)",
           "primaryKey": false,
           "notNull": true
+        },
+        "bio": {
+          "name": "bio",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
         }
       },
       "indexes": {},
