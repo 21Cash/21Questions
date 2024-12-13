@@ -10,10 +10,6 @@ export async function POST(request: Request) {
 
   const { username, password } = data;
 
-  console.log(`Request For Signup`);
-
-  console.log({ username, password });
-
   if (!username || !password) {
     return NextResponse.json(
       { error: "Missing required fields" },
@@ -22,7 +18,6 @@ export async function POST(request: Request) {
   }
 
   const hashedPassword = await argon2.hash(password);
-  console.log({ hashedPassword });
   try {
     const result = await db
       .insert(users)
@@ -37,7 +32,6 @@ export async function POST(request: Request) {
       { status: 200 }
     );
   } catch (error: any) {
-    console.log(`Error During Signup`);
     return NextResponse.json(
       { error: "Failed to create user" },
       { status: 500 }

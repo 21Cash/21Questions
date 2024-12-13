@@ -13,7 +13,6 @@ export default function TestComponent() {
     });
 
     const resData = await response.json();
-    console.log(resData);
   };
 
   const answerQuestion = async () => {
@@ -26,8 +25,6 @@ export default function TestComponent() {
       method: "POST",
       body: JSON.stringify(answerData),
     });
-
-    console.log(response);
   };
 
   const updateBio = async () => {
@@ -35,8 +32,6 @@ export default function TestComponent() {
       method: "POST",
       body: JSON.stringify({ bioText: "SWE @Google, Google SWE Intern '25" }),
     });
-
-    console.log(response);
   };
 
   return (

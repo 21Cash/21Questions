@@ -1,11 +1,19 @@
-import { pgTable, uuid, varchar, serial, timestamp } from "drizzle-orm/pg-core";
-import { InferInsertModel, InferSelectModel } from "drizzle-orm";
+import {
+  pgTable,
+  uuid,
+  varchar,
+  serial,
+  timestamp,
+  boolean,
+} from "drizzle-orm/pg-core";
+import { InferInsertModel, InferSelectModel, relations } from "drizzle-orm";
 
 export const users = pgTable("users", {
   id: uuid("id").primaryKey().defaultRandom().notNull(),
   username: varchar("username", { length: 255 }).notNull().unique(),
   password: varchar("password", { length: 128 }).notNull(),
   bio: varchar("bio", { length: 255 }).default(""),
+  hideUnansweredQuestions: boolean("hideUnansweredQuestions").default(true),
 });
 
 export const questions = pgTable("questions", {
@@ -20,6 +28,21 @@ export const questions = pgTable("questions", {
   answeredAt: timestamp("answeredAt"),
 });
 
+// Relations
+export const usersRelations = relations(users, ({ many }) => ({
+  askedQuestions: many(questions),
+  answeredQuestions: many(questions),
+}));
+
+export const questionsRelations = relations(questions, ({ one }) => ({
+  fromUser: one(users, {
+    fields: [questions.fromUser],
+    references: [users.id],
+  }),
+  toUser: one(users, { fields: [questions.toUser], references: [users.id] }),
+}));
+
+// Type Exports
 export type User = InferSelectModel<typeof users>;
 export type UserInsert = InferInsertModel<typeof users>;
 

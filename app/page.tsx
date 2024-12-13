@@ -1,15 +1,13 @@
 "use client";
-
-import SessionDisplay from "@/components/SessionDisplay/SessionDisplay";
-import TestComponent from "@/components/testcomponent/TestComponent";
-import { SessionProvider, useSession } from "next-auth/react";
+import Homepage from "@/components/Homepage/Homepage";
+import { useSession } from "next-auth/react";
 
 export default function Home() {
-  return (
-    <div>
-      <TestComponent />
+  const session = useSession();
 
-      <SessionDisplay />
+  return (
+    <div className="">
+      <Homepage />
     </div>
   );
 }

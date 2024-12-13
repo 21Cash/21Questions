@@ -18,7 +18,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "21Questions",
-  description: "A Fun Site to Ask Questions",
+  description: "A Fun Site to Ask Questions anonymously.",
 };
 
 export default function RootLayout({
@@ -29,10 +29,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased dark:text-white dark:bg-black`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased dark:text-white dark:bg-gradient-to-br from-gray-800 via-gray-700 to-gray-900 bg-[length:200%_200%]-gray-800  font-mono`}
       >
         <Providers>
           <Navbar />
+
           {children}
           <Footer />
         </Providers>

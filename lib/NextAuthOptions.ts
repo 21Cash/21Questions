@@ -51,5 +51,6 @@ export const NEXT_AUTH_OPTIONS: any = {
   },
   pages: {
     error: "/auth/error",
+    signIn: "/auth/signin",
   },
 };

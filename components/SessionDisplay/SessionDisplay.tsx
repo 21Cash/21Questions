@@ -10,7 +10,7 @@ export default function SessionDisplay() {
   }
 
   return (
-    <div className="h-screen dark:bg-secondary">
+    <div className="h-screen dark:bg-gray-700">
       {session ? (
         <pre>{JSON.stringify(session, null, 2)}</pre>
       ) : (
