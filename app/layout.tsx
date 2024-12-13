@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/Footer/Footer";
 import { SessionProvider } from "next-auth/react";
 import { Providers } from "./providers";
+import NextjsTopLoader from "nextjs-toploader";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -33,7 +34,21 @@ export default function RootLayout({
       >
         <Providers>
           <Navbar />
+          {/* Blue */}
+          {/* <NextjsTopLoader
+            speed={300}
+            shadow="0 0 10px #2299DD,0 0 5px #2299DD"
+            height={2}
+            color="#2299DD"
+          /> */}
 
+          {/* Green Top Bar */}
+          <NextjsTopLoader
+            speed={300}
+            shadow="0 0 10px #32CD32,0 0 5px #32CD32"
+            height={2}
+            color="#32CD32"
+          />
           {children}
           <Footer />
         </Providers>

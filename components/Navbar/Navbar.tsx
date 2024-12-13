@@ -9,7 +9,7 @@ import {
   UserMinusIcon,
 } from "@heroicons/react/24/outline";
 import { useSession, signOut } from "next-auth/react";
-import { useRouter } from "next/navigation";
+import { useRouter } from "nextjs-toploader/app";
 
 const Navbar = () => {
   const [darkMode, setDarkMode] = useState(true);
@@ -95,7 +95,11 @@ const Navbar = () => {
         <div className="flex items-center space-x-4">
           {session ? (
             <button
-              onClick={() => signOut()}
+              onClick={() => {
+                signOut().then(() => {
+                  router.push("/");
+                });
+              }}
               className="relative group hover:bg-gray-700 rounded-full p-2 active:scale-95 transition-transform duration-200"
               aria-label="Log Out"
             >
