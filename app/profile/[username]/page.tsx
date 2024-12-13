@@ -9,7 +9,7 @@ interface ProfilePageProps {
 }
 
 export default async function ProfilePage({ params }: ProfilePageProps) {
-  const { username } = params;
+  const { username } = await params;
 
   const session: any = await getServerSession(NEXT_AUTH_OPTIONS);
 
