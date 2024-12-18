@@ -42,7 +42,7 @@ const Navbar = () => {
   return (
     <nav className="flex justify-between items-center p-4 bg-transparent backdrop-blur-md shadow-md dark:shadow-lg z-50">
       <button onClick={() => router.push("/")}>
-        <h1 className="text-2xl font-bold text-gray-800 dark:text-white cursor-pointer group">
+        <h1 className="text-xl md:text-2xl font-bold text-gray-800 dark:text-white cursor-pointer group">
           <span className="group-hover:tracking-widest transition-all duration-500">
             21
           </span>
@@ -51,48 +51,46 @@ const Navbar = () => {
           </span>
         </h1>
       </button>
-      <div className="flex items-center space-x-4">
-        {session && (
-          <button
-            onClick={handleInboxNavigation}
-            className="relative group hover:bg-gray-700 rounded-full p-2 active:scale-95 transition-transform duration-200"
-            aria-label="Inbox"
-          >
-            <EnvelopeIcon className="w-9 h-9 dark:text-white" />
-            <span className="absolute left-1/2 transform -translate-x-1/2 top-full mt-2 text-xs text-white bg-black rounded p-1 opacity-0 group-hover:opacity-100 transition-opacity">
-              Inbox
-            </span>
-          </button>
-        )}
+      <div className="flex items-center space-x-2 md:space-x-4">
         <button
           onClick={toggleDarkMode}
-          className="relative group p-2 rounded-full bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 active:scale-95 transition-transform duration-200"
+          className="relative group p-1 md:p-2 rounded-full bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 active:scale-95 transition-transform duration-200"
           aria-label="Toggle dark mode"
         >
           {darkMode ? (
-            <MoonIcon className="w-6 h-6 text-gray-800 dark:text-white" />
+            <MoonIcon className="w-5 h-5 md:w-6 md:h-6 text-gray-800 dark:text-white" />
           ) : (
-            <SunIcon className="w-6 h-6 dark:text-yellow-400" />
+            <SunIcon className="w-5 h-5 md:w-6 md:h-6 dark:text-yellow-400" />
           )}
           <span className="absolute left-1/2 transform -translate-x-1/2 top-full mt-2 text-xs text-white bg-black rounded p-1 opacity-0 group-hover:opacity-100 transition-opacity">
             Theme
           </span>
         </button>
-
+        {session && (
+          <button
+            onClick={handleInboxNavigation}
+            className="relative group hover:bg-gray-700 rounded-full p-1 md:p-2 active:scale-95 transition-transform duration-200"
+            aria-label="Inbox"
+          >
+            <EnvelopeIcon className="w-5 h-5 md:w-6 md:h-6 dark:text-white" />
+            <span className="absolute left-1/2 transform -translate-x-1/2 top-full mt-2 text-xs text-white bg-black rounded p-1 opacity-0 group-hover:opacity-100 transition-opacity">
+              Inbox
+            </span>
+          </button>
+        )}
         {session && (
           <button
             onClick={handleProfileNavigation}
-            className="relative group hover:bg-gray-700 rounded-full p-2 active:scale-95 transition-transform duration-200"
+            className="relative group hover:bg-gray-700 rounded-full p-1 md:p-2 active:scale-95 transition-transform duration-200"
             aria-label="Profile"
           >
-            <UserIcon className="w-9 h-9 dark:text-white" />
+            <UserIcon className="w-5 h-5 md:w-6 md:h-6 dark:text-white" />
             <span className="absolute left-1/2 transform -translate-x-1/2 top-full mt-2 text-xs text-white bg-black rounded p-1 opacity-0 group-hover:opacity-100 transition-opacity">
               Profile
             </span>
           </button>
         )}
-
-        <div className="flex items-center space-x-4">
+        <div className="flex items-center space-x-2 md:space-x-4">
           {session ? (
             <button
               onClick={() => {
@@ -100,10 +98,10 @@ const Navbar = () => {
                   router.push("/");
                 });
               }}
-              className="relative group hover:bg-gray-700 rounded-full p-2 active:scale-95 transition-transform duration-200"
+              className="relative group hover:bg-gray-700 rounded-full p-1 md:p-2 active:scale-95 transition-transform duration-200"
               aria-label="Log Out"
             >
-              <UserMinusIcon className="w-9 h-9 dark:text-white" />
+              <UserMinusIcon className="w-5 h-5 md:w-6 md:h-6 dark:text-white" />
               <span className="absolute left-1/2 transform -translate-x-1/2 top-full mt-2 text-xs text-white bg-black rounded p-1 opacity-0 group-hover:opacity-100 transition-opacity">
                 Log Out
               </span>
@@ -112,13 +110,13 @@ const Navbar = () => {
             <>
               <button
                 onClick={() => router.push("/api/auth/signin")}
-                className="px-4 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600 dark:bg-gray-600 dark:hover:bg-gray-500 active:scale-95 transition-transform duration-200"
+                className="px-2 py-1 md:px-4 md:py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600 dark:bg-gray-600 dark:hover:bg-gray-500 active:scale-95 transition-transform duration-200"
               >
                 Sign In
               </button>
               <button
                 onClick={() => router.push("/auth/signup")}
-                className="px-4 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600 dark:bg-gray-600 dark:hover:bg-gray-500 active:scale-95 transition-transform duration-200"
+                className="px-2 py-1 md:px-4 md:py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600 dark:bg-gray-600 dark:hover:bg-gray-500 active:scale-95 transition-transform duration-200"
               >
                 Sign Up
               </button>

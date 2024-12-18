@@ -19,7 +19,7 @@ export default function Profile({
   userAskedQuestions,
 }: ProfileProps) {
   return (
-    <div className="relative w-[650px] space-y-6 mt-8 rounded-2xl mx-auto min-h-screen dark:bg-gray-800 shadow-2xl ring-gray-700 ring-2 p-10 mb-6">
+    <div className="relative sm:w-full md:w-[650px] space-y-6 mt-8 rounded-2xl mx-auto min-h-screen dark:bg-gray-800 shadow-2xl ring-gray-700 ring-2 p-10 mb-6">
       <div className="absolute top-4 right-4">
         <ShareButton />
       </div>
