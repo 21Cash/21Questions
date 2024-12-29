@@ -11,24 +11,25 @@ const Signup = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    const lowercasedUsername = username.toLowerCase();
+
     const res = await fetch("/api/auth/signup", {
       method: "POST",
-      body: JSON.stringify({ username: username.toLowerCase(), password }),
+      body: JSON.stringify({ username: lowercasedUsername, password }),
     });
-
     const data = await res.json();
 
     if (res.ok) {
       const signInRes = await signIn("credentials", {
-        redirect: false,
-        username,
+        username: lowercasedUsername,
         password,
       });
 
       if (signInRes?.error) {
         setError("Login failed after signup");
       } else {
-        router.push(`/profile/${username}`);
+        router.push(`/profile/${lowercasedUsername}`);
       }
     } else {
       setError("Signup failed");
