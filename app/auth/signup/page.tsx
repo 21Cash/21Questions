@@ -13,7 +13,7 @@ const Signup = () => {
     e.preventDefault();
     const res = await fetch("/api/auth/signup", {
       method: "POST",
-      body: JSON.stringify({ username, password }),
+      body: JSON.stringify({ username: username.toLowerCase(), password }),
     });
 
     const data = await res.json();
