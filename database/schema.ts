@@ -18,7 +18,6 @@ export const users = pgTable("users", {
 
 export const questions = pgTable("questions", {
   id: serial("id").primaryKey().unique().notNull(),
-  fromUser: uuid("fromUser").references(() => users.id),
   toUser: uuid("toUser")
     .references(() => users.id)
     .notNull(),
@@ -32,14 +31,6 @@ export const questions = pgTable("questions", {
 export const usersRelations = relations(users, ({ many }) => ({
   askedQuestions: many(questions),
   answeredQuestions: many(questions),
-}));
-
-export const questionsRelations = relations(questions, ({ one }) => ({
-  fromUser: one(users, {
-    fields: [questions.fromUser],
-    references: [users.id],
-  }),
-  toUser: one(users, { fields: [questions.toUser], references: [users.id] }),
 }));
 
 // Type Exports

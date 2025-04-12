@@ -18,18 +18,6 @@ export type ProfileData = {
     createdAt: Date;
     answeredAt: Date | null;
   }[];
-  userAskedQuestions: // Asked by User Questions
-  | {
-        id: number;
-        questionText: string;
-        answerText: string | null;
-        createdAt: Date;
-        answeredAt: Date | null;
-        toUser: {
-          username: string;
-        };
-      }[]
-    | null;
 };
 export default async function getProfileData({
   username,
@@ -63,31 +51,10 @@ export default async function getProfileData({
     );
   }
 
-  let userAskedQuestions = authorizedUser
-    ? await db.query.questions.findMany({
-        where: eq(questions.fromUser, id),
-        columns: {
-          id: true,
-          questionText: true,
-          answerText: true,
-          createdAt: true,
-          answeredAt: true,
-        },
-        with: {
-          toUser: {
-            columns: {
-              username: true,
-            },
-          },
-        },
-      })
-    : null;
-
   const returnData: ProfileData = {
     username,
     bio,
     askedQuestionsData,
-    userAskedQuestions,
   };
   return returnData;
 }

@@ -9,26 +9,18 @@ export type QuestionInfo = {
 };
 
 export async function askQuestion(questionInfo: QuestionInfo) {
-  const { fromUsername, toUsername, questionText } = questionInfo;
-
-  const fromUser = fromUsername
-    ? await db.query.users.findFirst({
-        where: eq(users.username, fromUsername),
-        columns: { id: true },
-      })
-    : null;
+  const { toUsername, questionText } = questionInfo;
 
   const toUserResult = await db.query.users.findFirst({
     where: eq(users.username, toUsername),
     columns: { id: true },
   });
 
-  if (!toUserResult || (fromUsername && !fromUser)) {
+  if (!toUserResult) {
     throw new Error("User not found");
   }
 
   const questionInsert: QuestionInsert = {
-    fromUser: fromUser ? fromUser.id : null,
     toUser: toUserResult.id,
     questionText,
   };
